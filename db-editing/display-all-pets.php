@@ -1,4 +1,3 @@
-
 <?php
 
 $servername = "localhost";
@@ -10,7 +9,7 @@ if($conn->connect_error) {
     die("connection failed"  . $conn->connection_error);
 }
 
-$sql ="SELECT * FROM tblpets";
+$sql = "SELECT * FROM tblpets";
 $result = $conn->query($sql);
 ?>
 
@@ -62,6 +61,7 @@ $result = $conn->query($sql);
             <th>Age</th>
             <th>Type</th>
             <th>#</th>
+            <th>#</th>
         </tr>
 
 
@@ -71,7 +71,8 @@ $result = $conn->query($sql);
         <td><?= $row["name"] ?></td>
         <td><?= $row["age"] ?></td>
         <td><?= $row["type"] ?></td>
-        <td><a href="edit.php?id=<?= $row["id"]?>">edit</a></td>
+        <td><a href="edit.php?id=<?= $row["id"]?>">Edit</a></td>
+        <td><a href="delete-action.php?id=<?= $row["id"]?>">Delete</a></td>
     </tr>
 <?php endwhile; ?>
 

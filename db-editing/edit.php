@@ -9,12 +9,12 @@ if($conn->connect_error) {
     die("connection failed"  . $conn->connection_error);
 }
 
-$sql = "SELECT * FROM pets WHERE id=?";
+$sql = "SELECT * FROM tblpets WHERE id=?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $_GET["id"]);
 $row = $stmt->execute();
 $result = $stmt->get_result();
-$pet = $redult->fetch_assoc();
+$pet = $result->fetch_assoc();
 
 ?>
 
@@ -55,19 +55,19 @@ $pet = $redult->fetch_assoc();
 
 <body>
 
-    <h1>Edit <?= $tblpet['name'] ?></h1>
+    <h1>Edit <?= $pet['name'] ?></h1>
 <form action="edit-action.php" method="POST">
     <p>
         name:
-        <input type="text" name="name" value="<?= $tblpet["name"] ?>">
+        <input type="text" name="name" value="<?= $pet["name"] ?>">
     </p>
     <p>
         Age:
-        <input type="text" name="age" value="<?= $tblpet["age"] ?>">
+        <input type="text" name="age" value="<?= $pet["age"] ?>">
     </p>
     <p>
         Type:
-        <input type="text" name="name" value="<?= $tblpet["type"] ?>">
+        <input type="text" name="name" value="<?= $pet["type"] ?>">
     </p>
     <p>
         <input type="submit" value="Update">
