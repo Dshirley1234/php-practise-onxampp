@@ -9,7 +9,9 @@ $conn = new mysqli($servername , $username , $password, "pets");
 if($conn->connect_error) {
     die("connection failed"  . $conn->connection_error);
 }
-echo "Connected successfully";
+
+$sql ="SELECT * FROM tblpets";
+$result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -59,23 +61,21 @@ echo "Connected successfully";
             <th>Name</th>
             <th>Age</th>
             <th>Type</th>
+            <th>#</th>
         </tr>
-<?php
-$sql = "SELECT * FROM tblpets";
-$result= $conn->query($sql);
 
-while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-    echo "<tr>";
-    echo "<td>{$row["id"]}</td>";
-    echo "<td>{$row["name"]}</td>";
-    echo "<td>{$row["age"]}</td>";
-    echo "<td>{$row["type"]}</td>";
-    echo "</tr>";
-}
 
-$result->free_result();
-$conn->close();
-?>
+<?php while ($row = $result->fetch_array(MYSQLI_ASSOC)): ?>
+    <tr>
+        <td><?= $row["id"] ?></td>
+        <td><?= $row["name"] ?></td>
+        <td><?= $row["age"] ?></td>
+        <td><?= $row["type"] ?></td>
+        <td><a href="edit.php?id=<?= $row["id"]?>">edit</a></td>
+    </tr>
+<?php endwhile; ?>
+
+
 </table>
 </body>
 </html>
