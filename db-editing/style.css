@@ -1,0 +1,44 @@
+.navigation-bar{
+    background-color: #333;
+    padding: 1em;
+    font-size: 16px;    
+}
+
+.navigation-bar a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navigation-bar a:hover {
+    background-color: black;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+}
+
+table th {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+table th,
+table td{
+    padding:12px 15px;
+}
+
+table tr{
+    border-bottom:1px solid #dddddd;
+}
+
+table tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
