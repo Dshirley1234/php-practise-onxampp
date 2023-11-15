@@ -19,11 +19,16 @@ function find_pet($search , $conn) {
     //select everything from tblpets where the name is similar to 
     //the user input
     $stmt = $conn->prepare($query);
-
     $search = "%{$_POST['search']}%";
-
     $stmt->bind_param("s" , $search);
     $stmt->execute();
     return $stmt->get_result();
-}
+};
+
+function get_all_pets($conn) {
+    $sql = "SELECT name FROM tblpets";
+    $result = $conn->query($sql);
+    return $result;
+
+};
 ?>
