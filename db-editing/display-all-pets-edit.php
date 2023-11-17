@@ -21,9 +21,8 @@ $result = $conn->query($sql);
     <?php
     include "partials/menu.php";
     ?>
-
+<div class="container">
     <h1>Registered pets</h1>
-
 <?php if(isset($_GET["msg"]) && $_GET["msg"]=="delete-success"): ?>
     <div class="success">
         Delete successful.
@@ -35,7 +34,8 @@ $result = $conn->query($sql);
 
 <br/>
 <br/>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
- 
+
 </body>
 </html>

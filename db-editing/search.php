@@ -20,10 +20,17 @@ while ($row = $all_pets->fetch_array(MYSQLI_ASSOC)) {
 }
 $petsnames_json = json_encode($petsnames);
 #gets pets and turns them into a json
-echo $petsnames_json
 ?>
 
-
+<style>
+    .dropdown_c{
+    background-color: #009879;
+    color: white;
+    border-style: solid;
+    border-radius: 10px; 
+}
+</style>
+<!--for some reason this css only works internally not externally-->
 
 
 <!DOCTYPE html>
@@ -37,14 +44,19 @@ echo $petsnames_json
     <body>
 
         <?php include "partials/menu.php"; ?>
+        <div class = "container">
         <h1>Search</h1>
-        <form action="search.php" method="POST">
+
+        <form action="search.php" method="POST" class="form-floating">
+        
             <p>
-                Enter the pets name:
-                <input type="text" id="search" name="search" value="<?= $user_search_string ?>" onkeyup="autofill()">
+
+                <input type="text" id="search" class="form-control" name="search" value="<?= $user_search_string ?>" onkeyup="autofill()" placeholder="Enter the pets name:">
+
                 <input type="submit" value="Find">
                 <!--user enters pet names here-->
-                <div id="autofill"></div>
+                <div id="autofill" class="dropdown_c"></div>
+
             </p>
                 <script>
                     var petnames = <?= $petsnames_json?>;
@@ -73,12 +85,14 @@ echo $petsnames_json
                 </script>
                 <!--script for autofill-->
                 </form>
+            
 <?php if ($show_results): ?>
 
 <?php include "partials/table.php"?>
 <!--tables-->
 
 <?php endif ?>
+</div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </html>

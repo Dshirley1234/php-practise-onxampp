@@ -31,4 +31,6 @@ function get_all_pets($conn) {
     return $result;
 
 };
+
+
 ?>

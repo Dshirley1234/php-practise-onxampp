@@ -2,7 +2,7 @@
 <table>
         <tr>
             <th>ID</th>
-            <th>Name</th>
+            <th><button id="sortByName">Name</button></th>
             <th>Age</th>
             <th>Type</th>
             <th>#</th>
@@ -17,7 +17,7 @@
         <td><?= $row["age"] ?></td>
         <td><?= $row["type"] ?></td>
         <td><a href="edit.php?id=<?= $row["id"]?>" class="btn btn-primary">Edit</a></td>
-        <td><a href="delete-action.php?id=<?= $row["id"]?>" class="btn btn-primary">Delete</a></td>
+        <td><a href="delete-action.php?id=<?= $row["id"]?>" class="btn btn-danger">Delete</a></td>
     
     </tr>
 <?php endwhile; ?>
