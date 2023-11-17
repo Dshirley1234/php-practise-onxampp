@@ -32,5 +32,13 @@ function get_all_pets($conn) {
 
 };
 
+function sort_by_name($conn) {
+    $query = "SELECT * FROM tblpets ORDER BY name ASC";
+    $stmt = $conn->prepare($query);
+    $stmt -> execute();
+    return $stmt->get_result();
+};
+
+
 
 ?>
