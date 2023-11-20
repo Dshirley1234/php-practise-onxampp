@@ -1,11 +1,8 @@
 
-
-
-
 <table>
         <tr>
             <th>ID</th>
-            <th><form action="search.php" method="POST"><button type="submit" name="sortByName">Name</button></form></th>
+            <th><form action="search.php" method="POST"><button type="submit" name="sortBy">Name</button></form></th>
             <th>Age</th>
             <th>Type</th>
             <th></th>

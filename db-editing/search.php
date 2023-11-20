@@ -21,9 +21,9 @@ while ($row = $all_pets->fetch_array(MYSQLI_ASSOC)) {
 $petsnames_json = json_encode($petsnames);
 #gets pets and turns them into a json
 
-if (isset($_POST['sortByName'])) {
+if (isset($_POST['sortBy'])) {
     $show_results=true;
-    $result = sort_by_name($conn);
+    $result = sort_by($conn);
 
 
 #result of search
