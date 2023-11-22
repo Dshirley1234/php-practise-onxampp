@@ -21,15 +21,12 @@ if (isset($_POST['sortBy'])) {
     $show_results=true;
     if(($_POST['sortBy']) == "name") {
         $result = sort_by_name($conn);
-        
     };
     if(($_POST['sortBy']) == "id") {
-        $result = sort_by_id($conn);
-       
+        $result = sort_by_id($conn); 
     };
     if(($_POST['sortBy']) == "age") {
-        $result = sort_by_age($conn);
-      
+        $result = sort_by_age($conn); 
     };
 }
 
@@ -58,22 +55,16 @@ $petsnames_json = json_encode($petsnames);
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <!--bootstrap-->
+    <?php include "partials/menu.php"; ?>
     </head>
-
     <body>
-
-        <?php include "partials/menu.php"; ?>
         <div class = "container">
         <h1>Search</h1>
 
         <form action="search.php" method="POST" class="form-floating">
-        
             <p>
-
-                <input type="text" id="search" class="form-control" name="search" value="<?= $user_search_string ?>" onkeyup="autofill()" placeholder="Enter the pets name:">
+                <input type="text" id="search" class="form-control" name="search" value="<?= $user_search_string ?>"
+                 onkeyup="autofill()" placeholder="Enter the pets name:">
 
                 <input type="submit" value="Find">
                 <!--user enters pet names here-->
@@ -82,8 +73,6 @@ $petsnames_json = json_encode($petsnames);
                     <div id="autofill" class="dropdown_c"></div>
                     </div>
                 </div>
-                
-
             </p>
                 <script>
                     var petnames = <?= $petsnames_json?>;

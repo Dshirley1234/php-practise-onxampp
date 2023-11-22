@@ -1,14 +1,19 @@
 
 <table>
         <tr>
-            <th><form action="<?= $file_name?>" method="POST"><button type="submit" value="id" name="sortBy" class="btn btn-success">ID</button></form></th>
-            <th><form action="<?= $file_name?>" method="POST"><button type="submit" value="name" name="sortBy" class="btn btn-success">Name</button></form></th>
-            <th><form action="<?= $file_name?>" method="POST"><button type="submit" value="age" name="sortBy" class="btn btn-success">age</button></form></th>
+            <th><form action="<?= $file_name?>" method="POST">
+            <button type="submit" value="id" name="sortBy" class="btn btn-success">ID</button></form></th>
+
+            <th><form action="<?= $file_name?>" method="POST">
+            <button type="submit" value="name" name="sortBy" class="btn btn-success">Name</button></form></th>
+
+            <th><form action="<?= $file_name?>" method="POST">
+            <button type="submit" value="age" name="sortBy" class="btn btn-success">age</button></form></th>
+
             <th>Type</th>
             <th></th>
             <th></th>
         </tr>
-
 
 <?php while ($row = $result->fetch_array(MYSQLI_ASSOC)): ?>
     <tr>
@@ -21,6 +26,4 @@
     
     </tr>
 <?php endwhile; ?>
-
-
 </table>

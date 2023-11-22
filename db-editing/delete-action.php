@@ -1,5 +1,4 @@
 <?php
-
 include "library/db.php";
 
 $conn = connect();
@@ -9,4 +8,4 @@ $stmt = $conn->prepare($query);
 $stmt->bind_param("i",$_GET["id"]);
 $stmt->execute();
 
-header('Location: http://localhost/php-practise/php-practise/db-editing/display-all-pets.php?msg=delete-success');
+header('Location: http://localhost/php-practise/php-practise/db-editing/display-all-pets-edit.php?msg=delete-success');
