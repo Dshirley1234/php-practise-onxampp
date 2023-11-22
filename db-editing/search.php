@@ -13,21 +13,34 @@ if (isset($_POST['search'])) {
 #result of search
 }
 
+
+
+
+$file_name = basename($_SERVER['SCRIPT_FILENAME']);
+if (isset($_POST['sortBy'])) {
+    $show_results=true;
+    if(($_POST['sortBy']) == "name") {
+        $result = sort_by_name($conn);
+        
+    };
+    if(($_POST['sortBy']) == "id") {
+        $result = sort_by_id($conn);
+       
+    };
+    if(($_POST['sortBy']) == "age") {
+        $result = sort_by_age($conn);
+      
+    };
+}
+
 $all_pets = get_all_pets($conn);
 $petsnames = array();
 while ($row = $all_pets->fetch_array(MYSQLI_ASSOC)) {
     $petsnames[] = $row['name'];
 }
 $petsnames_json = json_encode($petsnames);
+
 #gets pets and turns them into a json
-
-if (isset($_POST['sortBy'])) {
-    $show_results=true;
-    $result = sort_by($conn);
-
-
-#result of search
-}
 
 ?>
 

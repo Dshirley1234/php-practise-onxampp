@@ -1,7 +1,6 @@
 <?php
 
 function connect(){
-
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -32,8 +31,22 @@ function get_all_pets($conn) {
 
 };
 
-function sort_by($conn) {
+function sort_by_name($conn) {
     $query = "SELECT * FROM tblpets ORDER BY name ASC";
+    $stmt = $conn->prepare($query);
+    $stmt -> execute();
+    return $stmt->get_result();
+};
+
+function sort_by_id($conn) {
+    $query = "SELECT * FROM tblpets ORDER BY id ASC";
+    $stmt = $conn->prepare($query);
+    $stmt -> execute();
+    return $stmt->get_result();
+};
+
+function sort_by_age($conn) {
+    $query = "SELECT * FROM tblpets ORDER BY age ASC";
     $stmt = $conn->prepare($query);
     $stmt -> execute();
     return $stmt->get_result();

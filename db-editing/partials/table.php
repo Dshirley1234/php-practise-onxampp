@@ -1,9 +1,9 @@
 
 <table>
         <tr>
-            <th>ID</th>
-            <th><form action="search.php" method="POST"><button type="submit" name="sortBy">Name</button></form></th>
-            <th>Age</th>
+            <th><form action="<?= $file_name?>" method="POST"><button type="submit" value="id" name="sortBy" class="btn btn-success">ID</button></form></th>
+            <th><form action="<?= $file_name?>" method="POST"><button type="submit" value="name" name="sortBy" class="btn btn-success">Name</button></form></th>
+            <th><form action="<?= $file_name?>" method="POST"><button type="submit" value="age" name="sortBy" class="btn btn-success">age</button></form></th>
             <th>Type</th>
             <th></th>
             <th></th>

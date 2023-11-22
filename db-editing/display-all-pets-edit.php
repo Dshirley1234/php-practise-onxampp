@@ -5,6 +5,23 @@ $conn = connect();
 $sql = "SELECT * FROM tblpets";
 $result = $conn->query($sql);
 
+
+$file_name = basename($_SERVER['SCRIPT_FILENAME']);
+if (isset($_POST['sortBy'])) {
+    $show_results=true;
+    if(($_POST['sortBy']) == "name") {
+        $result = sort_by_name($conn);
+    };
+    if(($_POST['sortBy']) == "id") {
+        $result = sort_by_id($conn);
+    };
+    if(($_POST['sortBy']) == "age") {
+        $result = sort_by_age($conn);
+    };
+}
+
+#provides the name of the current file for the autosort button to use
+#also code fot when autosort is pressed
 ?>
 <!DOCTYPE html>
 <html lang="en">
