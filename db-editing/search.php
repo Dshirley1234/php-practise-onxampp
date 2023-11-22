@@ -77,7 +77,12 @@ $petsnames_json = json_encode($petsnames);
 
                 <input type="submit" value="Find">
                 <!--user enters pet names here-->
-                <div id="autofill" class="dropdown_c"></div>
+                <div class="row">
+                    <div class="col col-lg-2">
+                    <div id="autofill" class="dropdown_c"></div>
+                    </div>
+                </div>
+                
 
             </p>
                 <script>
